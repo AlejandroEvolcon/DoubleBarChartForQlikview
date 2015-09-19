@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ExtensionObject Label="Double Bar Chart" Path="Evolcon/DoubleBarChart">
+
+        <Dimension Label="Dimension:" TargetName="Dimension" Initial="" />
+        <Measurement Label="Expression 1:" TargetName="Expression" Initial=""/>
+		<Measurement Label="Expression 2:" TargetName="Expression" Initial=""/>
+		<Text Label="Color:" Type="color" Initial="" Expression="#0080FF"/>
+		<Text Label="Color:" Type="color" Initial="" Expression="#0080C0"/> 
+		
+        <Initiate Name="Caption.Font.Italic" Value="1" />
+		<Initiate Name="Caption.Text" Value="Double Bar Chart" />
+		<Initiate Name="Chart.Dimension.0.Sort.PrimarySort.Use" Value="1" />
+		<Initiate Name="Chart.Dimension.0.Sort.SecondarySort.Use" Value="1" />
+		<Initiate Name="Chart.Dimension.0.Sort.ByExpression.Use" Value="1" />
+		
+		
+</ExtensionObject>
