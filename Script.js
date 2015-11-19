@@ -120,7 +120,7 @@ Qva.LoadScript('/QvAjaxZfc/QvsViewClient.aspx?public=only&name=Extensions/Evolco
 					.attr("class", "axis")
 					.call(namesAxis)
 					.selectAll("text")
-					.attr("transform","translate(10,25)rotate(60)");
+					.attr("transform","translate(-25,25)rotate(300)");
 
 		
     },true); //End AddExtension
