@@ -62,6 +62,7 @@ Qva.LoadScript('/QvAjaxZfc/QvsViewClient.aspx?public=only&name=Extensions/Evolco
 							
 		var valuesAxis = d3.svg.axis()
 							.scale(valuesScaleAxis)
+							.tickFormat(d3.format("s"))
 							.orient("left");
 							
 		var namesScale = d3.scale.ordinal()
