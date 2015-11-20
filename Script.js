@@ -43,6 +43,15 @@ Qva.LoadScript('/QvAjaxZfc/QvsViewClient.aspx?public=only&name=Extensions/Evolco
 		var maxValueLength = maxValue.toString().length;
 		margin.left = margin.left + (maxValueLength * 4);
 		
+		var maxNameLength = 0;
+		for(var i = 0; i < _this.Data.Rows.length; i++){
+			if (names[i].length > maxNameLength)
+				maxNameLength = names[i].length;
+		}
+		margin.bottom = margin.bottom + (maxNameLength * 2.0);
+		var miniBarWidthPercent = 0.55;
+		var miniBarWidth = barWidth * miniBarWidthPercent;
+		
 		var w = vw - margin.right - margin.left;
 		var h = vh - margin.top - margin.bottom;
 		        
@@ -51,7 +60,6 @@ Qva.LoadScript('/QvAjaxZfc/QvsViewClient.aspx?public=only&name=Extensions/Evolco
 		//scales		
 		var valuesScale = d3.scale.linear()
 							.domain([0, maxValue])
-							//.range([h - 20, 0])
 							.range([0, h - 20])
 							.nice();
 		
@@ -104,8 +112,8 @@ Qva.LoadScript('/QvAjaxZfc/QvsViewClient.aspx?public=only&name=Extensions/Evolco
 					.data(values2)
 					.enter()
 						.append("rect")
-						.attr("width", barWidth * 0.6)
-						.attr("x", function(d, i){return i * (barWidth + 10) + margin.left+ 10 + (barWidth * 0.2);})
+						.attr("width", barWidth * miniBarWidthPercent)
+						.attr("x", function(d, i){return i * (barWidth + 10) + margin.left+ 10 + (barWidth * ((1 - miniBarWidthPercent)/2));})
 						.attr("fill", this.Layout.Text1.text)
 						.attr("y", function(d){return h - valuesScale(d);})
 						.attr("height", function(d){return valuesScale(d);});
@@ -121,7 +129,8 @@ Qva.LoadScript('/QvAjaxZfc/QvsViewClient.aspx?public=only&name=Extensions/Evolco
 					.attr("class", "axis")
 					.call(namesAxis)
 					.selectAll("text")
-					.attr("transform","translate(-25,25)rotate(300)");
+					.attr("transform", function(d, i){return "translate(" + (names[i].length * -2.5) + "," + (names[i].length * 2.0) +")rotate(320)"});
+					//.attr("transform","translate(-25," + (maxNameLength * 1.5) +")rotate(300)");
 
 		
     },true); //End AddExtension
